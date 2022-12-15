@@ -10,9 +10,9 @@
 
 <b>Tools used in this template: </b>
 
-- [Solidity](https://docs.soliditylang.org/en/v0.8.14/), [Hardhat](https://hardhat.org/), and [web3sdkio deploy](https://portal.web3sdk.io/web3sdkio-cli) to develop, test, and deploy our smart contract.
+- [Solidity](https://docs.soliditylang.org/en/v0.8.14/), [Hardhat](https://hardhat.org/), and [web3sdkio deploy](https://docs.web3sdk.io/web3sdkio-cli) to develop, test, and deploy our smart contract.
 
-- web3sdkio [Typescript](https://portal.web3sdk.io/typescript) and [React](https://portal.web3sdk.io/react) SDKs to interact with our smart contract
+- web3sdkio [Typescript](https://docs.web3sdk.io/typescript) and [React](https://docs.web3sdk.io/react) SDKs to interact with our smart contract
 
 <br />
 
@@ -48,9 +48,9 @@ Let's explore how the [NFT Collection Smart Contract](./contract/contracts/MyAwe
 
 Our contract implements a base contract and also a contract extension::
 
-1. The [`ERC721Base`](https://portal.web3sdk.io/solidity-sdk/base-contracts/erc-721/erc721base) base contract provides ERC-721A features.
+1. The [`ERC721Base`](https://docs.web3sdk.io/solidity-sdk/base-contracts/erc-721/erc721base) base contract provides ERC-721A features.
 
-2. The [`PermissionEnumerable`](https://portal.web3sdk.io/solidity-sdk/contract-extensions/permissions#permissions-enumerable) extension provides role-based restrictions on who can call specific functions.
+2. The [`PermissionEnumerable`](https://docs.web3sdk.io/solidity-sdk/contract-extensions/permissions#permissions-enumerable) extension provides role-based restrictions on who can call specific functions.
 
 As you can see in the contract definition:
 
@@ -63,7 +63,7 @@ contract MyAwesomeNft is ERC721Base, PermissionsEnumerable {
 }
 ```
 
-By implementing these contract extensions, we unlock powerful features on the [dashboard](https://web3sdk.io/dashboard) and the [SDK](https://portal.web3sdk.io/building-web3-apps/setting-up-the-sdk)!
+By implementing these contract extensions, we unlock powerful features on the [dashboard](https://web3sdk.io/dashboard) and the [SDK](https://docs.web3sdk.io/building-web3-apps/setting-up-the-sdk)!
 
 Let's take a look at those now.
 
@@ -113,7 +113,7 @@ To deploy the `MyAwesomeNft` contract, change directories into the `contract` fo
 cd contract
 ```
 
-Use [web3sdkio deploy](https://portal.web3sdk.io/web3sdkio-cli) to deploy the contract:
+Use [web3sdkio deploy](https://docs.web3sdk.io/web3sdkio-cli) to deploy the contract:
 
 ```bash
 npx web3sdkio deploy
@@ -123,7 +123,7 @@ Complete the deployment flow by clicking the generated link and using the web3sd
 
 ## Using Your Contract
 
-Inside the [home page](./application/pages/index.js) of the web application, connect to your smart contract inside the [`useContract`](https://portal.web3sdk.io/react/react.usecontract#usecontract-function) hook:
+Inside the [home page](./application/pages/index.js) of the web application, connect to your smart contract inside the [`useContract`](https://docs.web3sdk.io/react/react.usecontract#usecontract-function) hook:
 
 ```jsx
 // Get the smart contract by it's address
@@ -139,7 +139,7 @@ const activeChainId = ChainId.Goerli;
 
 Now we can easily call the functions of our [`NFT Collection contract`](./contract/contracts/MyAwesomeNft.sol) that we enabled by implementing web3sdkio's contract extensions.
 
-Here, we are using the [`useNFTs`](https://portal.web3sdk.io/react/react.usenfts) hook to view all the NFTs in the contract, and the [`useMintNFT`](https://portal.web3sdk.io/react/react.usemintnft) hook to mint a new NFT!
+Here, we are using the [`useNFTs`](https://docs.web3sdk.io/react/react.usenfts) hook to view all the NFTs in the contract, and the [`useMintNFT`](https://docs.web3sdk.io/react/react.usemintnft) hook to mint a new NFT!
 
 ```jsx
 // Read the NFTs from the contract
@@ -149,7 +149,7 @@ const { data: nfts, isLoading: loading } = useNFTs(contract?.nft);
 const { mutate: mintNft, isLoading: minting } = useMintNFT(contract?.nft);
 ```
 
-With the help of a few other useful hooks such as [`useAddress`](https://portal.web3sdk.io/react/react.useaddress) and [`useNetwork`](https://portal.web3sdk.io/react/react.usenetwork), we first make sure they are connected to the correct blockchain/network. Then, we allow them to mint an NFT when they click the `Mint NFT` button.
+With the help of a few other useful hooks such as [`useAddress`](https://docs.web3sdk.io/react/react.useaddress) and [`useNetwork`](https://docs.web3sdk.io/react/react.usenetwork), we first make sure they are connected to the correct blockchain/network. Then, we allow them to mint an NFT when they click the `Mint NFT` button.
 
 ```jsx
 async function mintAnNft() {
@@ -192,7 +192,7 @@ async function mintAnNft() {
 
 To perform a "write" operation (a transaction on the blockchain), we need to have a connected wallet, so we can use their **signer** to sign the transaction.
 
-To connect a user's wallet, we use one of web3sdkio's [wallet connection hooks](https://portal.web3sdk.io/react/category/wallet-connection). The SDK automatically detects the connected wallet and uses it to sign transactions. This works because our application is wrapped in the [`Web3sdkioProvider`](https://portal.web3sdk.io/react/react.web3sdkioprovider), as seen in the [`_app.js`](./application/pages/_app.js) file.
+To connect a user's wallet, we use one of web3sdkio's [wallet connection hooks](https://docs.web3sdk.io/react/category/wallet-connection). The SDK automatically detects the connected wallet and uses it to sign transactions. This works because our application is wrapped in the [`Web3sdkioProvider`](https://docs.web3sdk.io/react/react.web3sdkioprovider), as seen in the [`_app.js`](./application/pages/_app.js) file.
 
 ```jsx
 const address = useAddress();
@@ -201,4 +201,4 @@ const connectWithMetamask = useMetamask();
 
 ## Join our Discord!
 
-For any questions, suggestions, join our Discord at [https://discord.gg/web3sdkio](https://discord.gg/web3sdkio).
+For any questions, suggestions, join our Discord at [https://discord.gg/n33UhsfUKB](https://discord.gg/n33UhsfUKB).
